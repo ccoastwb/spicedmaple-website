@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <meta name="description" content="Small-batch maple syrup and thoughtfully crafted spiced maple products from Pepperell, Massachusetts.">
+  <title>The Spiced Maple Co. | Pure Maple, Real Spice</title>
+  <style>
+    :root {
+      --green: #123b2b;
+      --cream: #fbf4e8;
+      --gold: #d6a04a;
+      --copper: #b65a2a;
+      --red: #8b3f35;
+      --ink: #1b251f;
+      --muted: #5c655d;
+      --line: #d8c8b3;
+      --white: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--cream);
+      font-family: Georgia, "Times New Roman", serif; line-height: 1.55;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 36px)); margin: 0 auto; }
+    header {
+      background: var(--cream); border-bottom: 1px solid var(--line);
+      padding: 18px 0 0;
+    }
+    .brand { text-align: center; }
+    .brand img { display: block; width: min(100%, 670px); max-height: 255px; object-fit: contain; margin: 0 auto; }
+    .tagline {
+      margin: 0 auto 18px; text-transform: uppercase; letter-spacing: .24em;
+      font: 600 12px/1.5 Arial, sans-serif; color: var(--green);
+    }
+    nav {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 24px;
+      padding: 12px 0; border-top: 1px solid var(--line);
+      font: 600 12px Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase;
+    }
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--copper); }
+    .hero {
+      padding: 44px 0 38px; text-align: center;
+      background: linear-gradient(180deg, #fbf4e8 0%, #f4e5cf 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { color: var(--copper); text-transform: uppercase; letter-spacing: .18em; font: 700 11px Arial, sans-serif; }
+    h1 { color: var(--green); font-size: clamp(30px, 5vw, 48px); line-height: 1.12; margin: 10px auto 14px; font-weight: 600; }
+    .hero p { max-width: 620px; margin: 0 auto 22px; font-size: 18px; }
+    .button {
+      display: inline-block; border: 0; border-radius: 4px; padding: 12px 20px;
+      background: var(--green); color: white; text-decoration: none;
+      font: 700 12px Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+    }
+    .button:hover { background: #20543e; }
+    section { padding: 42px 0; }
+    .section-heading { text-align: center; margin: 0 0 8px; color: var(--green); font-size: 30px; font-weight: 600; }
+    .section-intro { text-align: center; max-width: 650px; margin: 0 auto 28px; color: var(--muted); }
+    .products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .product {
+      background: var(--white); border: 1px solid var(--line); border-radius: 8px;
+      padding: 22px 18px; display: flex; flex-direction: column; min-height: 220px;
+      box-shadow: 0 3px 12px rgba(40, 30, 15, .04);
+    }
+    .swatch { width: 38px; height: 5px; border-radius: 5px; margin-bottom: 15px; background: var(--green); }
+    .swatch.spiced { background: var(--copper); }
+    .swatch.gold { background: var(--gold); }
+    .product h3 { margin: 0 0 8px; font-size: 20px; color: var(--green); line-height: 1.25; }
+    .size { color: var(--muted); font: 12px Arial, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+    .price { margin-top: auto; padding-top: 18px; font-size: 24px; color: var(--copper); }
+    .about { background: #f2e4d0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .about-copy { max-width: 720px; margin: 0 auto; text-align: center; font-size: 18px; }
+    .order-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr); gap: 28px; align-items: start; }
+    form, .order-note { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 24px; }
+    .field { margin-bottom: 16px; }
+    label { display: block; margin-bottom: 6px; font: 700 12px Arial, sans-serif; letter-spacing: .04em; }
+    input, textarea, select {
+      width: 100%; border: 1px solid #cbbba6; border-radius: 4px; padding: 11px 12px;
+      background: #fffefa; color: var(--ink); font: 15px Arial, sans-serif;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .quantity-row { display: grid; grid-template-columns: 1fr 82px; gap: 12px; align-items: center; margin: 12px 0; }
+    .quantity-row label { margin: 0; font: 15px Georgia, serif; letter-spacing: 0; }
+    .quantity-row small { display: block; color: var(--muted); font: 12px Arial, sans-serif; margin-top: 3px; }
+    input[type="number"] { padding: 9px; }
+    .total { display: flex; justify-content: space-between; border-top: 1px solid var(--line); margin: 20px 0; padding-top: 14px; font-size: 20px; color: var(--green); }
+    .fineprint { color: var(--muted); font: 12px/1.5 Arial, sans-serif; }
+    .order-note h3 { margin-top: 0; color: var(--green); }
+    .order-note p { margin-bottom: 12px; }
+    .payment-link { display: inline-block; margin: 5px 8px 5px 0; padding: 9px 13px; border: 1px solid var(--green); border-radius: 4px; text-decoration: none; color: var(--green); font: 700 12px Arial, sans-serif; }
+    .payment-link:hover { background: #e9f0e9; }
+    footer { background: var(--green); color: #f9f0e1; text-align: center; padding: 26px 0; font-size: 14px; }
+    footer p { margin: 4px 0; }
+    @media (max-width: 760px) {
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .order-layout { grid-template-columns: 1fr; }
+      .brand img { max-height: 190px; }
+      section { padding: 32px 0; }
+    }
+    @media (max-width: 440px) {
+      .products { grid-template-columns: 1fr; }
+      .wrap { width: min(100% - 24px, 1080px); }
+      .product { min-height: 175px; }
+      nav { gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <img src="assets/spiced-maple-logo.png" alt="The Spiced Maple Co. — Pure Maple, Real Spice">
+        <p class="tagline">Pure Maple · Real Spice · Pepperell, Massachusetts</p>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#products">Products</a>
+        <a href="#about">Our Story</a>
+        <a href="#order">Place an Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Small-batch maple goodness</div>
+        <h1>Pure Maple. Real Spice.</h1>
+        <p>Thoughtfully crafted maple syrup and spiced maple favorites from Pepperell, Massachusetts.</p>
+        <a class="button" href="#order">Build Your Order</a>
+      </div>
+    </div>
+
+    <section id="products">
+      <div class="wrap">
+        <h2 class="section-heading">Our Products</h2>
+        <p class="section-intro">Classic maple syrup and warm, spice-infused favorites. All prices are in USD.</p>
+        <div class="products">
+          <article class="product">
+            <div class="swatch"></div>
+            <h3>Regular Maple Syrup</h3>
+            <div class="size">250 mL bottle</div>
+            <div class="price">$13</div>
+          </article>
+          <article class="product">
+            <div class="swatch spiced"></div>
+            <h3>Spiced Maple Syrup</h3>
+            <div class="size">250 mL bottle</div>
+            <div class="price">$16</div>
+          </article>
+          <article class="product">
+            <div class="swatch gold"></div>
+            <h3>Regular Maple Syrup</h3>
+            <div class="size">500 mL bottle</div>
+            <div class="price">$22</div>
+          </article>
+          <article class="product">
+            <div class="swatch spiced"></div>
+            <h3>Spiced Maple Syrup</h3>
+            <div class="size">500 mL bottle</div>
+            <div class="price">$28</div>
+          </article>
+          <article class="product">
+            <div class="swatch"></div>
+            <h3>Regular Maple Syrup</h3>
+            <div class="size">Quart · plastic jug</div>
+            <div class="price">$24</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap">
+        <h2 class="section-heading">Made with Care in Pepperell</h2>
+        <p class="about-copy">The Spiced Maple Co. brings together pure maple and real spice in thoughtfully crafted small-batch products. From everyday maple syrup to distinctive spiced blends, each bottle is made to be shared and enjoyed.</p>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="wrap">
+        <h2 class="section-heading">Place an Order</h2>
+        <p class="section-intro">Choose your products and quantities below. We'll follow up to confirm your order and arrange local pickup and payment.</p>
+        <div class="order-layout">
+          <form action="https://formsubmit.co/wb.sugarmaple@gmail.com" method="POST" id="orderForm">
+            <input type="hidden" name="_subject" value="New order — The Spiced Maple Co.">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="Order details" id="orderDetails">
+            <input type="hidden" name="Order total (USD)" id="orderTotal">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="field">
+              <label for="customerName">Name *</label>
+              <input id="customerName" name="Name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="customerEmail">Email *</label>
+              <input id="customerEmail" name="Email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="customerPhone">Phone (optional)</label>
+              <input id="customerPhone" name="Phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label>Choose quantities</label>
+              <div class="quantity-row">
+                <label for="q0">Regular syrup <small>250 mL · $13</small></label>
+                <input id="q0" name="Quantity — Regular 250 mL" type="number" min="0" max="99" step="1" value="0" data-name="Regular Maple Syrup, 250 mL" data-price="13">
+              </div>
+              <div class="quantity-row">
+                <label for="q1">Spiced syrup <small>250 mL · $16</small></label>
+                <input id="q1" name="Quantity — Spiced 250 mL" type="number" min="0" max="99" step="1" value="0" data-name="Spiced Maple Syrup, 250 mL" data-price="16">
+              </div>
+              <div class="quantity-row">
+                <label for="q2">Regular syrup <small>500 mL · $22</small></label>
+                <input id="q2" name="Quantity — Regular 500 mL" type="number" min="0" max="99" step="1" value="0" data-name="Regular Maple Syrup, 500 mL" data-price="22">
+              </div>
+              <div class="quantity-row">
+                <label for="q3">Spiced syrup <small>500 mL · $28</small></label>
+                <input id="q3" name="Quantity — Spiced 500 mL" type="number" min="0" max="99" step="1" value="0" data-name="Spiced Maple Syrup, 500 mL" data-price="28">
+              </div>
+              <div class="quantity-row">
+                <label for="q4">Regular syrup <small>Quart jug · $24</small></label>
+                <input id="q4" name="Quantity — Regular quart jug" type="number" min="0" max="99" step="1" value="0" data-name="Regular Maple Syrup, quart plastic jug" data-price="24">
+              </div>
+            </div>
+            <div class="field">
+              <label for="pickup">Pickup / timing notes (optional)</label>
+              <textarea id="pickup" name="Pickup and timing notes" placeholder="Preferred pickup day or any questions"></textarea>
+            </div>
+            <div class="total"><span>Order estimate</span><strong id="totalDisplay">$0.00</strong></div>
+            <p class="fineprint">Submitting an order is a request, not a confirmed sale. We'll reply to confirm availability, the final total, pickup, and payment. No payment is collected on this website.</p>
+            <button class="button" type="submit">Submit Order Request</button>
+            <p id="formMessage" class="fineprint" role="status"></p>
+          </form>
+
+          <aside class="order-note">
+            <h3>What happens next?</h3>
+            <p>1. Send your order request.</p>
+            <p>2. We'll email you to confirm availability and arrange pickup.</p>
+            <p>3. Pay after confirmation using Venmo or PayPal.</p>
+            <p><strong>Local pickup:</strong> Pepperell, Massachusetts and surrounding area. Pickup details are arranged after your order is confirmed.</p>
+            <p><strong>Payment links:</strong> Add your Venmo and PayPal links here before publishing.</p>
+            <!-- Replace the # below with your real payment URLs when ready. -->
+            <a class="payment-link" href="#" aria-label="Venmo payment link to be configured">Venmo · coming soon</a>
+            <a class="payment-link" href="#" aria-label="PayPal payment link to be configured">PayPal · coming soon</a>
+            <p class="fineprint">Payment buttons are placeholders until your business payment links are added.</p>
+            <p><strong>Questions?</strong><br><a href="mailto:wb.sugarmaple@gmail.com">wb.sugarmaple@gmail.com</a></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>The Spiced Maple Co.</strong></p>
+      <p>Pure Maple · Real Spice</p>
+      <p>Pepperell, Massachusetts</p>
+      <p>© <span id="year"></span> The Spiced Maple Co.</p>
+    </div>
+  </footer>
+
+  <script>
+    const quantityInputs = Array.from(document.querySelectorAll('input[data-price]'));
+    const totalDisplay = document.getElementById('totalDisplay');
+    const detailsField = document.getElementById('orderDetails');
+    const totalField = document.getElementById('orderTotal');
+    const form = document.getElementById('orderForm');
+    function updateOrder() {
+      let total = 0;
+      const lines = [];
+      quantityInputs.forEach(input => {
+        const qty = Math.max(0, Math.min(99, parseInt(input.value || '0', 10) || 0));
+        input.value = qty;
+        const price = Number(input.dataset.price);
+        if (qty > 0) {
+          total += qty * price;
+          lines.push(`${qty} × ${input.dataset.name} — $${(qty * price).toFixed(2)}`);
+        }
+      });
+      totalDisplay.textContent = `$${total.toFixed(2)}`;
+      detailsField.value = lines.length ? lines.join('\n') : 'No products selected';
+      totalField.value = `$${total.toFixed(2)}`;
+    }
+    quantityInputs.forEach(input => input.addEventListener('input', updateOrder));
+    form.addEventListener('submit', event => {
+      updateOrder();
+      if (!quantityInputs.some(input => Number(input.value) > 0)) {
+        event.preventDefault();
+        document.getElementById('formMessage').textContent = 'Please choose at least one product before submitting.';
+        return;
+      }
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    updateOrder();
+  </script>
+</body>
+</html>
