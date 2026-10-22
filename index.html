@@ -3,336 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Spiced Maple Co. | Pepperell, Massachusetts</title>
+<title>The Spiced Maple Co. | Pure Maple. Real Spice.</title>
+<meta name="description" content="Small-batch maple syrups and maple sugars from The Spiced Maple Co. in Pepperell, Massachusetts.">
 <style>
 :root {
-  --green: #294735;
-  --cream: #f7f3e8;
-  --gold: #c9a45c;
-  --copper: #a96c45;
-  --ink: #292c25;
+  --green:#1e3b2e;
+  --cream:#f8f1e4;
+  --gold:#d6a04a;
+  --copper:#b65a2a;
+  --red:#8b3f3f;
+  --plum:#5b3e5f;
+  --ink:#263027;
+  --paper:#fffaf1;
 }
-* { box-sizing: border-box; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  background: var(--cream);
-  color: var(--ink);
-  line-height: 1.6;
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
 }
 header {
-  background: var(--green);
-  color: var(--cream);
-  text-align: center;
-  padding: 36px 20px 42px;
-  border-bottom: 5px solid var(--gold);
+  background:var(--green);
+  color:var(--cream);
+  text-align:center;
+  padding:30px 18px;
+  border-bottom:5px solid var(--gold);
 }
-header img { max-width: 240px; width: 80%; height: auto; }
-header h1 { margin: 12px 0 0; font-size: 2.2rem; }
-header p { margin: 5px 0 0; letter-spacing: 2px; }
-nav { text-align: center; padding: 14px; }
+header img {
+  width:150px;
+  max-width:42vw;
+  border-radius:50%;
+  border:3px solid var(--gold);
+  display:block;
+  margin:0 auto 12px;
+}
+header h1 {
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:normal;
+  letter-spacing:.04em;
+  font-size:clamp(2rem,5vw,3.4rem);
+  line-height:1.1;
+  margin:8px 0;
+}
+.tagline {
+  letter-spacing:.22em;
+  font-weight:bold;
+  font-size:.85rem;
+}
+.location {
+  letter-spacing:.18em;
+  font-size:.85rem;
+  margin-top:8px;
+}
+nav {
+  position:sticky;
+  top:0;
+  background:var(--paper);
+  border-bottom:1px solid #dfcfb4;
+  text-align:center;
+  padding:12px 8px;
+  z-index:5;
+}
 nav a {
-  color: var(--green);
-  margin: 0 12px;
-  font-weight: bold;
-  text-decoration: none;
+  display:inline-block;
+  color:var(--green);
+  font-weight:bold;
+  text-decoration:none;
+  margin:4px 12px;
 }
-main { max-width: 1000px; margin: auto; padding: 24px 18px 50px; }
-section { margin: 35px 0; }
+main {
+  max-width:1100px;
+  margin:auto;
+  padding:24px 18px 52px;
+}
+.intro {
+  text-align:center;
+  max-width:720px;
+  margin:22px auto 42px;
+}
 h2 {
-  text-align: center;
-  color: var(--green);
-  font-size: 1.8rem;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--green);
+  font-weight:normal;
+  text-align:center;
+  font-size:2rem;
+  margin:0 0 8px;
 }
-.intro { text-align: center; max-width: 680px; margin: auto; }
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
+.kicker {
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--copper);
+  font-size:.78rem;
+  font-weight:bold;
+  text-align:center;
 }
-.product {
-  background: #fffdf7;
-  border: 1px solid #ded4bd;
-  border-top: 4px solid var(--copper);
-  padding: 22px;
-  text-align: center;
-  border-radius: 4px;
+.section-intro {
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 22px;
 }
-.product h3 { color: var(--green); margin: 0 0 8px; }
-.price { font-size: 1.35rem; font-weight: bold; color: var(--copper); }
-.size { color: #68685e; font-size: .95rem; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
+  gap:16px;
+  margin:22px 0 44px;
+}
+.card {
+  background:var(--paper);
+  border:1px solid #ddcdb2;
+  border-top:5px solid var(--copper);
+  padding:20px 18px;
+  border-radius:5px;
+  display:flex;
+  flex-direction:column;
+  min-height:180px;
+}
+.card.sugar { border-top-color:var(--gold); }
+.card.holiday { border-top-color:var(--plum); }
+.card h3 {
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--green);
+  font-size:1.18rem;
+  line-height:1.3;
+  margin:0 0 8px;
+}
+.card p { margin:0 0 8px; }
+.sizes {
+  color:#5d6259;
+  font-size:.92rem;
+  margin-top:auto!important;
+}
+.price {
+  font-size:1.25rem;
+  color:var(--copper);
+  font-weight:bold;
+}
+.pill {
+  display:inline-block;
+  align-self:flex-start;
+  background:#f1e1c6;
+  color:var(--green);
+  font-size:.72rem;
+  font-weight:bold;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+#order { scroll-margin-top:70px; }
 form {
-  background: #fffdf7;
-  padding: 24px;
-  border: 1px solid #ded4bd;
-  max-width: 700px;
-  margin: auto;
+  max-width:780px;
+  margin:22px auto 0;
+  background:var(--paper);
+  border:1px solid #ddcdb2;
+  padding:24px;
+  border-radius:5px;
 }
-label { display: block; font-weight: bold; margin: 15px 0 5px; }
-input, select, textarea {
-  width: 100%;
-  padding: 11px;
-  font: inherit;
-  border: 1px solid #bdb7a8;
-  border-radius: 3px;
-  background: white;
+label {
+  display:block;
+  font-weight:bold;
+  margin:14px 0 5px;
 }
-.order-row {
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  gap: 12px;
-  align-items: end;
-  margin: 12px 0;
+input,textarea {
+  font:inherit;
+  width:100%;
+  padding:11px;
+  border:1px solid #c7b99f;
+  border-radius:3px;
+  background:white;
 }
-.order-row label { margin-top: 0; }
+.order-item {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 88px;
+  gap:14px;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid #eadfce;
+}
+.order-item label { margin:0; font-weight:normal; }
+.order-item strong {
+  display:block;
+  color:var(--green);
+}
+.order-item small { color:#65675d; }
+.order-item input { padding:9px; }
 .total {
-  text-align: right;
-  font-size: 1.35rem;
-  font-weight: bold;
-  color: var(--green);
-  margin: 20px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:1.3rem;
+  font-weight:bold;
+  color:var(--green);
+  padding:18px 0;
 }
 button {
-  width: 100%;
-  padding: 14px;
-  border: 0;
-  background: var(--green);
-  color: white;
-  font: bold 1.05rem Georgia, serif;
-  cursor: pointer;
+  width:100%;
+  background:var(--green);
+  color:white;
+  border:0;
+  border-radius:3px;
+  padding:14px;
+  font:bold 1rem Arial,sans-serif;
+  cursor:pointer;
 }
-button:hover { background: #1e3527; }
-.note { font-size: .92rem; color: #55564d; }
+button:hover { background:#142b20; }
+.note { font-size:.9rem; color:#5b6058; }
 footer {
-  text-align: center;
-  background: var(--green);
-  color: var(--cream);
-  padding: 25px 15px;
+  background:var(--green);
+  color:var(--cream);
+  text-align:center;
+  padding:26px 16px;
+  border-top:5px solid var(--gold);
 }
-footer a { color: #f0d69a; }
-@media (max-width: 480px) {
-  header h1 { font-size: 1.7rem; }
-  .order-row { grid-template-columns: 1fr 80px; }
-  form { padding: 16px; }
+footer a { color:#f0d59e; }
+@media(max-width:520px) {
+  nav a { margin:4px 7px; font-size:.9rem; }
+  form { padding:16px; }
+  .card { min-height:0; }
+  .order-item { grid-template-columns:minmax(0,1fr) 72px; }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="assets/spiced-maple-logo.png" alt="The Spiced Maple Co. logo">
+  <img src="assets/spiced-maple-circle-logo.jpg"
+       alt="The Spiced Maple Co. circular maple leaf logo">
   <h1>The Spiced Maple Co.</h1>
-  <p>PURE MAPLE. REAL SPICE.</p>
-  <p>Pepperell, Massachusetts</p>
+  <div class="tagline">PURE MAPLE · REAL SPICE</div>
+  <div class="location">PEPPERELL, MASSACHUSETTS</div>
 </header>
 
-<nav>
-  <a href="#products">Our Products</a>
-  <a href="#order">Place an Order</a>
+<nav aria-label="Main navigation">
+  <a href="#syrup">Maple Syrups</a>
+  <a href="#sugar">Maple Sugars</a>
+  <a href="#order">Order</a>
 </nav>
 
 <main>
-  <section class="intro">
-    <h2>A Little New England, With a Twist</h2>
-    <p>
-      Locally made maple syrup, thoughtfully paired with warm spices
-      and distinctive flavors. Enjoy it on pancakes, in coffee, in recipes,
-      or as a thoughtful gift.
-    </p>
-  </section>
+<section class="intro">
+  <div class="kicker">Small batch · Thoughtfully crafted</div>
+  <h2>A New England Classic, With a Twist</h2>
+  <p>Pure maple syrup and real spices, thoughtfully crafted in Pepperell, Massachusetts. Explore our focused collection of maple syrups and maple sugars, made to share and enjoy.</p>
+</section>
 
-  <section id="products">
-    <h2>Our Maple Syrup</h2>
-    <div class="products">
-      <article class="product">
-        <h3>Regular Maple Syrup</h3>
-        <p>Pure maple syrup in its classic form.</p>
-        <p class="size">250 mL</p>
-        <p class="price">$13</p>
-      </article>
-      <article class="product">
-        <h3>Spiced Maple Syrup</h3>
-        <p>Distinctive spiced and infused varieties.</p>
-        <p class="size">250 mL</p>
-        <p class="price">$16</p>
-      </article>
-      <article class="product">
-        <h3>Regular Maple Syrup</h3>
-        <p>Classic maple flavor in a larger bottle.</p>
-        <p class="size">500 mL</p>
-        <p class="price">$22</p>
-      </article>
-      <article class="product">
-        <h3>Spiced Maple Syrup</h3>
-        <p>Our signature flavors in a larger bottle.</p>
-        <p class="size">500 mL</p>
-        <p class="price">$28</p>
-      </article>
-      <article class="product">
-        <h3>Regular Maple Syrup</h3>
-        <p>A practical size for the maple syrup regular.</p>
-        <p class="size">Quart plastic jug</p>
-        <p class="price">$24</p>
-      </article>
+<section id="syrup">
+  <div class="kicker">Made with pure maple</div>
+  <h2>Maple Syrups</h2>
+  <p class="section-intro">From classic pure maple to warm, spice-infused favorites.</p>
+  <div class="grid">
+    <article class="card">
+      <h3>Original Pure Maple Syrup</h3>
+      <p>Classic, pure maple flavor.</p>
+      <p class="sizes">250 mL · <span class="price">$14</span></p>
+    </article>
+    <article class="card">
+      <h3>Original Pure Maple Syrup</h3>
+      <p>Our classic maple syrup in a larger bottle.</p>
+      <p class="sizes">500 mL · <span class="price">$24</span></p>
+    </article>
+    <article class="card">
+      <h3>Original Pure Maple Syrup</h3>
+      <p>A handy jug for everyday use.</p>
+      <p class="sizes">Pint jug · <span class="price">$18</span></p>
+    </article>
+    <article class="card">
+      <h3>Original Pure Maple Syrup</h3>
+      <p>A family-size pantry staple.</p>
+      <p class="sizes">Quart plastic jug · <span class="price">$24</span></p>
+    </article>
+    <article class="card">
+      <h3>Cinnamon Infused Maple Syrup</h3>
+      <p>Warm cinnamon brings a cozy twist to pure maple.</p>
+      <p class="sizes">250 mL · <span class="price">$16</span></p>
+    </article>
+    <article class="card">
+      <h3>Cinnamon Infused Maple Syrup</h3>
+      <p>A larger bottle of our cinnamon favorite.</p>
+      <p class="sizes">500 mL · <span class="price">$28</span></p>
+    </article>
+    <article class="card">
+      <h3>Cinnamon Clove Infused Maple Syrup</h3>
+      <p>Deep, warming spice with a seasonal feel.</p>
+      <p class="sizes">250 mL · <span class="price">$17</span></p>
+    </article>
+    <article class="card">
+      <h3>Cinnamon Clove Infused Maple Syrup</h3>
+      <p>More to enjoy or share.</p>
+      <p class="sizes">500 mL · <span class="price">$30</span></p>
+    </article>
+    <article class="card">
+      <h3>Vanilla Cinnamon Infused Maple Syrup</h3>
+      <p>Smooth vanilla paired with warming cinnamon.</p>
+      <p class="sizes">250 mL · <span class="price">$17</span></p>
+    </article>
+    <article class="card">
+      <h3>Vanilla Cinnamon Infused Maple Syrup</h3>
+      <p>A larger bottle of this sweet-spice combination.</p>
+      <p class="sizes">500 mL · <span class="price">$30</span></p>
+    </article>
+    <article class="card">
+      <h3>Vanilla Nutmeg Infused Maple Syrup</h3>
+      <p>Comforting vanilla and aromatic nutmeg.</p>
+      <p class="sizes">250 mL · <span class="price">$17</span></p>
+    </article>
+    <article class="card">
+      <h3>Vanilla Nutmeg Infused Maple Syrup</h3>
+      <p>A larger bottle of this warmly spiced variety.</p>
+      <p class="sizes">500 mL · <span class="price">$30</span></p>
+    </article>
+    <article class="card holiday">
+      <span class="pill">Seasonal</span>
+      <h3>Holiday Gingerbread Maple Syrup</h3>
+      <p>A festive gingerbread-inspired maple treat.</p>
+      <p class="sizes">250 mL · <span class="price">$20</span></p>
+    </article>
+  </div>
+</section>
+
+<section id="sugar">
+  <div class="kicker">A little sweetness, naturally</div>
+  <h2>Maple Sugars</h2>
+  <p class="section-intro">Sprinkle into coffee, tea, baking, oatmeal, or wherever you'd use a touch of sweetness.</p>
+  <div class="grid">
+    <article class="card sugar">
+      <h3>Original Maple Sugar</h3>
+      <p>Pure maple sweetness in granulated form.</p>
+      <p class="sizes">5.5 oz · <span class="price">$9</span></p>
+    </article>
+    <article class="card sugar">
+      <h3>Cinnamon Maple Sugar</h3>
+      <p>A cozy cinnamon twist for drinks and baking.</p>
+      <p class="sizes">5.5 oz · <span class="price">$10</span></p>
+    </article>
+    <article class="card sugar">
+      <h3>Espresso Maple Sugar</h3>
+      <p>Maple sweetness with a coffee-inspired edge.</p>
+      <p class="sizes">5.5 oz · <span class="price">$10</span></p>
+    </article>
+    <article class="card sugar">
+      <h3>Pumpkin Spice Maple Sugar</h3>
+      <p>A seasonal favorite for fall drinks and treats.</p>
+      <p class="sizes">5.5 oz · <span class="price">$10</span></p>
+    </article>
+    <article class="card sugar">
+      <h3>Chai Maple Sugar</h3>
+      <p>Inspired by the warm spices of chai.</p>
+      <p class="sizes">5.5 oz · <span class="price">$10</span></p>
+    </article>
+  </div>
+</section>
+
+<section id="order">
+  <div class="kicker">Made to share</div>
+  <h2>Request an Order</h2>
+  <p class="section-intro">Choose your products and quantities. We'll follow up by email to confirm availability, pickup arrangements, and payment.</p>
+
+  <form action="https://formsubmit.co/wb.sugarmaple@gmail.com"
+        method="POST" id="orderForm">
+    <input type="hidden" name="_subject" value="New Spiced Maple Co. Order Request">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="Estimated order total" id="orderTotal" value="$0.00">
+
+    <label for="customerName">Your name</label>
+    <input id="customerName" name="Name" required>
+
+    <label for="customerEmail">Email address</label>
+    <input id="customerEmail" type="email" name="Email" required>
+
+    <label for="customerPhone">Phone (optional)</label>
+    <input id="customerPhone" type="tel" name="Phone">
+
+    <h3>Products and quantities</h3>
+    <div id="orderItems"></div>
+
+    <div class="total">
+      <span>Estimated total</span>
+      <span id="totalDisplay">$0.00</span>
     </div>
-  </section>
 
-  <section id="order">
-    <h2>Place an Order</h2>
-    <p class="intro">
-      Select your products and quantities below. Submitting an order
-      request does not confirm availability; we'll follow up by email.
-    </p>
+    <label for="notes">Order notes (optional)</label>
+    <textarea id="notes" name="Order notes" rows="3"
+      placeholder="Pickup preferences or questions"></textarea>
 
-    <form action="https://formsubmit.co/wb.sugarmaple@gmail.com"
-          method="POST" id="orderForm">
-      <input type="hidden" name="_subject" value="New Spiced Maple Co. Order Request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="Order total" id="orderTotal" value="$0.00">
-
-      <label for="customerName">Your name</label>
-      <input id="customerName" name="Name" required>
-
-      <label for="customerEmail">Email address</label>
-      <input id="customerEmail" type="email" name="Email" required>
-
-      <label for="customerPhone">Phone (optional)</label>
-      <input id="customerPhone" type="tel" name="Phone">
-
-      <h3>Choose products and quantities</h3>
-
-      <div class="order-row">
-        <label for="regular250">Regular Maple Syrup — 250 mL ($13)</label>
-        <input id="regular250" type="number" min="0" max="99" value="0"
-          name="Regular 250 mL quantity" data-price="13">
-      </div>
-
-      <div class="order-row">
-        <label for="regular500">Regular Maple Syrup — 500 mL ($22)</label>
-        <input id="regular500" type="number" min="0" max="99" value="0"
-          name="Regular 500 mL quantity" data-price="22">
-      </div>
-
-      <div class="order-row">
-        <label for="regularQuart">Regular Maple Syrup — quart jug ($24)</label>
-        <input id="regularQuart" type="number" min="0" max="99" value="0"
-          name="Regular quart jug quantity" data-price="24">
-      </div>
-
-      <div class="order-row">
-        <label for="vanilla250">Vanilla Spiced — 250 mL ($16)</label>
-        <input id="vanilla250" type="number" min="0" max="99" value="0"
-          name="Vanilla Spiced 250 mL quantity" data-price="16">
-      </div>
-
-      <div class="order-row">
-        <label for="vanilla500">Vanilla Spiced — 500 mL ($28)</label>
-        <input id="vanilla500" type="number" min="0" max="99" value="0"
-          name="Vanilla Spiced 500 mL quantity" data-price="28">
-      </div>
-
-      <div class="order-row">
-        <label for="cinnamon250">Cinnamon Spiced — 250 mL ($16)</label>
-        <input id="cinnamon250" type="number" min="0" max="99" value="0"
-          name="Cinnamon Spiced 250 mL quantity" data-price="16">
-      </div>
-
-      <div class="order-row">
-        <label for="cinnamon500">Cinnamon Spiced — 500 mL ($28)</label>
-        <input id="cinnamon500" type="number" min="0" max="99" value="0"
-          name="Cinnamon Spiced 500 mL quantity" data-price="28">
-      </div>
-
-      <div class="order-row">
-        <label for="vanillaCinnamon250">Vanilla Cinnamon — 250 mL ($16)</label>
-        <input id="vanillaCinnamon250" type="number" min="0" max="99" value="0"
-          name="Vanilla Cinnamon 250 mL quantity" data-price="16">
-      </div>
-
-      <div class="order-row">
-        <label for="vanillaCinnamon500">Vanilla Cinnamon — 500 mL ($28)</label>
-        <input id="vanillaCinnamon500" type="number" min="0" max="99" value="0"
-          name="Vanilla Cinnamon 500 mL quantity" data-price="28">
-      </div>
-
-      <div class="order-row">
-        <label for="espresso250">Espresso — 250 mL ($16)</label>
-        <input id="espresso250" type="number" min="0" max="99" value="0"
-          name="Espresso 250 mL quantity" data-price="16">
-      </div>
-
-      <div class="order-row">
-        <label for="espresso500">Espresso — 500 mL ($28)</label>
-        <input id="espresso500" type="number" min="0" max="99" value="0"
-          name="Espresso 500 mL quantity" data-price="28">
-      </div>
-
-      <div class="order-row">
-        <label for="nutmeg250">Cinnamon Nutmeg — 250 mL ($16)</label>
-        <input id="nutmeg250" type="number" min="0" max="99" value="0"
-          name="Cinnamon Nutmeg 250 mL quantity" data-price="16">
-      </div>
-
-      <div class="order-row">
-        <label for="nutmeg500">Cinnamon Nutmeg — 500 mL ($28)</label>
-        <input id="nutmeg500" type="number" min="0" max="99" value="0"
-          name="Cinnamon Nutmeg 500 mL quantity" data-price="28">
-      </div>
-
-      <div class="order-row">
-        <label for="clove250">Cinnamon Clove — 250 mL ($16)</label>
-        <input id="clove250" type="number" min="0" max="99" value="0"
-          name="Cinnamon Clove 250 mL quantity" data-price="16">
-      </div>
-
-      <div class="order-row">
-        <label for="clove500">Cinnamon Clove — 500 mL ($28)</label>
-        <input id="clove500" type="number" min="0" max="99" value="0"
-          name="Cinnamon Clove 500 mL quantity" data-price="28">
-      </div>
-
-      <p class="total">Estimated total: <span id="totalDisplay">$0.00</span></p>
-
-      <label for="notes">Order notes (optional)</label>
-      <textarea id="notes" name="Order notes" rows="4"
-        placeholder="Preferred pickup arrangements or questions"></textarea>
-
-      <p class="note">
-        This is an order request, not a confirmed order. We'll contact you
-        to confirm availability and arrange payment and pickup.
-      </p>
-      <button type="submit">Submit Order Request</button>
-    </form>
-  </section>
+    <p class="note">This is an order request, not a confirmed order. We'll contact you to confirm details. Prices are suggested retail prices in USD.</p>
+    <button type="submit">Submit Order Request</button>
+  </form>
+</section>
 </main>
 
 <footer>
-  <p><strong>The Spiced Maple Co.</strong></p>
-  <p>Pepperell, Massachusetts</p>
+  <strong>The Spiced Maple Co.</strong>
+  <p>Pure Maple · Real Spice · Pepperell, Massachusetts</p>
   <p><a href="mailto:wb.sugarmaple@gmail.com">wb.sugarmaple@gmail.com</a></p>
+  <small>Small batch · Thoughtfully crafted · Made in Pepperell, Massachusetts</small>
 </footer>
 
 <script>
-const quantityInputs = document.querySelectorAll("[data-price]");
-const totalDisplay = document.getElementById("totalDisplay");
-const totalField = document.getElementById("orderTotal");
+const products = [
+  ["Original Pure Maple Syrup — 250 mL",14],
+  ["Original Pure Maple Syrup — 500 mL",24],
+  ["Original Pure Maple Syrup — pint jug",18],
+  ["Original Pure Maple Syrup — quart plastic jug",24],
+  ["Cinnamon Infused Maple Syrup — 250 mL",16],
+  ["Cinnamon Infused Maple Syrup — 500 mL",28],
+  ["Cinnamon Clove Infused Maple Syrup — 250 mL",17],
+  ["Cinnamon Clove Infused Maple Syrup — 500 mL",30],
+  ["Vanilla Cinnamon Infused Maple Syrup — 250 mL",17],
+  ["Vanilla Cinnamon Infused Maple Syrup — 500 mL",30],
+  ["Vanilla Nutmeg Infused Maple Syrup — 250 mL",17],
+  ["Vanilla Nutmeg Infused Maple Syrup — 500 mL",30],
+  ["Holiday Gingerbread Maple Syrup — 250 mL",20],
+  ["Original Maple Sugar — 5.5 oz",9],
+  ["Cinnamon Maple Sugar — 5.5 oz",10],
+  ["Espresso Maple Sugar — 5.5 oz",10],
+  ["Pumpkin Spice Maple Sugar — 5.5 oz",10],
+  ["Chai Maple Sugar — 5.5 oz",10]
+];
+
+const orderItems = document.getElementById("orderItems");
+
+products.forEach((product,index) => {
+  const row = document.createElement("div");
+  row.className = "order-item";
+
+  const label = document.createElement("label");
+  label.htmlFor = "qty" + index;
+  label.innerHTML = "<strong>" + product[0] +
+    "</strong><small>$" + product[1].toFixed(2) + " each</small>";
+
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = "0";
+  input.max = "99";
+  input.value = "0";
+  input.id = "qty" + index;
+  input.name = product[0] + " quantity";
+  input.dataset.price = product[1];
+  input.setAttribute("aria-label",product[0] + " quantity");
+  input.addEventListener("input",updateTotal);
+
+  row.append(label,input);
+  orderItems.append(row);
+});
 
 function updateTotal() {
   let total = 0;
-  quantityInputs.forEach(input => {
-    const quantity = Math.max(0, Math.min(99, Number(input.value) || 0));
+  orderItems.querySelectorAll("input").forEach(input => {
+    const quantity = Math.max(0,Math.min(99,Number(input.value) || 0));
     total += quantity * Number(input.dataset.price);
   });
-  const formatted = "$" + total.toFixed(2);
-  totalDisplay.textContent = formatted;
-  totalField.value = formatted;
+
+  const amount = "$" + total.toFixed(2);
+  document.getElementById("totalDisplay").textContent = amount;
+  document.getElementById("orderTotal").value = amount;
 }
 
-quantityInputs.forEach(input => input.addEventListener("input", updateTotal));
+document.getElementById("orderForm").addEventListener("submit",event => {
+  const hasItems = [...orderItems.querySelectorAll("input")]
+    .some(input => Number(input.value) > 0);
 
-document.getElementById("orderForm").addEventListener("submit", event => {
-  const hasItems = [...quantityInputs].some(input => Number(input.value) > 0);
   if (!hasItems) {
     event.preventDefault();
     alert("Please select at least one product before submitting.");
@@ -340,7 +475,6 @@ document.getElementById("orderForm").addEventListener("submit", event => {
     updateTotal();
   }
 });
-
 updateTotal();
 </script>
 </body>
