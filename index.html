@@ -166,13 +166,13 @@ footer a{color:#f0d59e}
   <a href="mailto:wb.sugarmaple@gmail.com">wb.sugarmaple@gmail.com</a>.
   We'll be happy to help.
 </p>
-    <form action="https://formsubmit.co/wb.sugarmaple@gmail.com" method="POST" id="orderForm">
-      <input type="hidden" name="_subject" value="New Spiced Maple Co. Order Request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
+    <form action="https://api.web3forms.com/submit" method="POST" id="orderForm">
+      <input type="hidden" name="access_key" value="42744758-33ea-4d0a-ab36-c96206d9ff3f">
+<input type="hidden" name="subject" value="New Spiced Maple Co. Order Request">
+<input type="hidden" name="from_name" value="The Spiced Maple Co. Website">
       <input type="hidden" name="Estimated order total" id="orderTotal" value="$0.00">
       <label for="customerName">Your name</label><input id="customerName" name="Name" required>
-      <label for="customerEmail">Email address</label><input id="customerEmail" type="email" name="Email" required>
+      <label for="customerEmail">Email address</label><<input id="customerEmail" type="email" name="email" required>>
       <label for="customerPhone">Phone (optional)</label><input id="customerPhone" type="tel" name="Phone">
       <h3>Products and quantities</h3>
       <div id="orderItems"></div>
@@ -180,6 +180,7 @@ footer a{color:#f0d59e}
       <label for="notes">Order notes (optional)</label><textarea id="notes" name="Order notes" rows="3" placeholder="Pickup preferences or questions"></textarea>
       <p class="note">This is an order request, not a confirmed order. We'll contact you to confirm details. Prices are suggested retail prices in USD.</p>
       <button type="submit">Submit Order Request</button>
+      <p id="formResult" class="note" role="status" aria-live="polite" style="display:none; text-align:center; padding:14px; margin-top:16px; background:#e8f0e8; border-radius:5px;"></p>
     </form>
   </section>
 </main>
@@ -239,13 +240,49 @@ function updateTotal(){
   document.getElementById("totalDisplay").textContent=amount;
   document.getElementById("orderTotal").value=amount;
 }
-document.getElementById("orderForm").addEventListener("submit",event=>{
-  const hasItems=[...orderItems.querySelectorAll("input")].some(input=>Number(input.value)>0);
-  if(!hasItems){
-    event.preventDefault();
+document.getElementById("orderForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const hasItems = [...orderItems.querySelectorAll("input")]
+    .some(input => Number(input.value) > 0);
+
+  if (!hasItems) {
     alert("Please select at least one product before submitting.");
-  } else {
-    updateTotal();
+    return;
+  }
+
+  updateTotal();
+
+  const form = event.target;
+  const result = document.getElementById("formResult");
+  const button = form.querySelector('button[type="submit"]');
+
+  button.disabled = true;
+  button.textContent = "Submitting...";
+  result.style.display = "none";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form)
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      result.textContent = "Thank you! Your order request has been received. We'll be in touch shortly.";
+      result.style.display = "block";
+      form.reset();
+      updateTotal();
+    } else {
+      throw new Error(data.message || "Submission failed.");
+    }
+  } catch (error) {
+    result.textContent = "We couldn't submit your request. Please email wb.sugarmaple@gmail.com directly.";
+    result.style.display = "block";
+  } finally {
+    button.disabled = false;
+    button.textContent = "Submit Order Request";
   }
 });
 </script>
